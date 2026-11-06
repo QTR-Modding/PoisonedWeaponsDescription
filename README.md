@@ -1,6 +1,6 @@
 # Clone with recursive to get the commonlib submodule
 
-git clone --recursive https://github.com/QTR-Modding/PoisonDescription
+git clone --recursive https://github.com/QTR-Modding/PoisonedWeaponsDescription
 
 ## Environment variables
 
