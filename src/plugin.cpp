@@ -1,20 +1,15 @@
 #include "Hooks.h"
-#include "Logger.h"
-#include "UI.h"
+#include "logger.h"
 
-void OnMessage(SKSE::MessagingInterface::Message* message) {
-    if (message->type == SKSE::MessagingInterface::kDataLoaded) {
-    }
-    if (message->type == SKSE::MessagingInterface::kPostLoad) {
-    }
-}
-
-SKSEPluginLoad(const SKSE::LoadInterface *skse) {
+SKSEPluginLoad(const SKSE::LoadInterface* skse) {
     SKSE::Init(skse);
-    SKSE::GetMessagingInterface()->RegisterListener(OnMessage);
     SetupLog();
-    logger::info("Plugin loaded");
-    UI::Register();
-    Hooks::Install();
+    try {
+        Hooks::Install();
+    } catch (const std::exception& error) {
+        logger::critical("Cannot install poison description hook: {}", error.what());
+        return false;
+    }
+    logger::info("PoisonDescription loaded");
     return true;
 }

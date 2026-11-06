@@ -2,10 +2,10 @@
 #                 Required envs assert                 #
 # ---------------------------------------------------- #
 
-if(NOT DEFINED ENV{COMMONLIB_SSE_FOLDER})
-  message(FATAL_ERROR "Missing COMMONLIB_SSE_FOLDER environment variable")
+set(COMMONLIB_SSE_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/extern/CommonLibSSE-NG")
+if(NOT EXISTS "${COMMONLIB_SSE_FOLDER}/CMakeLists.txt")
+  message(FATAL_ERROR "CommonLibSSE-NG not found at '${COMMONLIB_SSE_FOLDER}'. Set COMMONLIB_SSE_FOLDER or run: git submodule update --init --recursive")
 endif()
-
 # ---------------------------------------------------- #
 #               Imports and definitions                #
 # ---------------------------------------------------- #
@@ -24,8 +24,8 @@ add_include_folder(vendor/include)
 
 cmake_minimum_required(VERSION 3.21)
 set(AUTHOR_NAME "AuthorName")
-set(PRODUCT_NAME "ThiagoTemplate")
-set(BEAUTIFUL_NAME "Thiago Template")
+set(PRODUCT_NAME "PoisonedWeaponsDescription")
+set(BEAUTIFUL_NAME "Poisoned Weapons Description")
 
 project(${PRODUCT_NAME} VERSION 3.0.0.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)

@@ -1,13 +1,11 @@
 {
   "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
-  "name": "deneme",
-  "version-string": "0.1",
+  "name": "poison-description",
+  "version-string": "1.0.0",
   "dependencies": [
-    "clib-util",
     "rapidcsv",
     "directxtk",
     "spdlog",
-    "glm",
     "detours"
   ],
   "overrides": [
